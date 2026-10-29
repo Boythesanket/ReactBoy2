@@ -209,6 +209,30 @@ const App = () => {
               className="w-35 drop-shadow-xl transition-transform hover:scale-110"
             />
           </div>
+            <section className="flex min-h-[70vh] flex-col items-center justify-center bg-gradient-to-b from-pink-100 to-rose-200 px-6 py-16 text-center">
+  <p className="text-sm uppercase tracking-[0.3em] text-rose-500">
+    Pssst... one more thing ♡
+  </p>
+
+  <h2 className="mt-5 font-serif text-3xl text-rose-900 sm:text-5xl">
+    You didn't think I forgot, did you?
+  </h2>
+
+  <p className="mt-4 max-w-lg text-rose-800/80">
+    I made you something new this year.
+    A little more magic and a whole new world
+    waiting for you. 🎀
+  </p>
+
+  <a
+    href="YOUR_2026_WEBSITE_URL"
+    className="mt-8 rounded-full bg-rose-500 px-8 py-4
+               font-medium text-white shadow-lg
+               transition hover:-translate-y-1 hover:bg-rose-600"
+  >
+    Open your 2026 surprise ♡ →
+  </a>
+</section>
           </>
         )}
       </div>
