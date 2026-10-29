@@ -6,8 +6,11 @@ import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const publicAsset = (filename) => `${import.meta.env.BASE_URL}${filename}`;
+
 const App = () => {
   const [showImages, setShowImages] = useState(false);
+  const [showNext, setShowNext] = useState(false);
 
   useEffect(() => {
     gsap.fromTo(
@@ -105,7 +108,7 @@ const App = () => {
               setTimeout(() => setShow(false), 8000);
             }}
             className="active:scale-95 h-max w-max animate-float drop-shadow-[6px_5px_6px_#db2777]"
-            src="public/cake.webp"
+            src="/cake.webp"
           />
           {show ? <Fireworks autorun={{ speed: 2 }} /> : ""}
         </div>
@@ -118,28 +121,28 @@ const App = () => {
         <div className="relative h-screen">
           <img
             className="balloon absolute bottom-15 left-20 w-30 mt-10"
-            src="public/balloon.gif"
+            src={publicAsset("balloon.gif")}
           />
           <img
             className="balloon absolute bottom-25 w-30 mt-10"
-            src="public/balloon.gif"
+            src={publicAsset("balloon.gif")}
           />
           <img
             className="balloon absolute bottom-45 right-19 w-30 mt-10"
-            src="public/balloon.gif"
+            src={publicAsset("balloon.gif")}
           />
           <img
             className="balloon absolute bottom-30 right-2 w-30 mt-10"
-            src="public/balloon.gif"
+            src={publicAsset("balloon.gif")}
           />
           <img
             className="balloon absolute bottom-60 left-20 w-30 mt-10"
-            src="public/balloon.gif"
+            src={publicAsset("balloon.gif")}
           />
           <div className="flex justify-center items-center">
             <img
               className="flower w-80 absolute bottom-0"
-              src="public/flower.jpg"
+              src={publicAsset("flower.jpg")}
             />
           </div>
         </div>
@@ -149,21 +152,21 @@ const App = () => {
         <div className="mafia bg-white w-35 overflow-hidden h-35 rounded-[50%] my-10 mx-5 drop-shadow-[2px_2px_6px_#db2777]">
           <img
             className="object-cover bg-cover h-full w-full"
-            src="public/mafia.png"
+            src={publicAsset("mafia.png")}
           />
         </div>
 
         <div className="mafia bg-white overflow-hidden w-35 h-35 rounded-[50%] absolute right-5 top-42 drop-shadow-[2px_2px_6px_#db2777]">
           <img
             className="object-cover bg-cover h-full w-full"
-            src="public/mafia2.png"
+            src={publicAsset("mafia2.png")}
           />
         </div>
 
         <div className="mafia bg-white drop-shadow-[2px_2px_6px_#db2777] overflow-hidden w-35 h-35 rounded-[50%] absolute left-5 top-90">
           <img
             className="object-cover bg-cover h-full w-full"
-            src="public/mafia3.png"
+            src={publicAsset("mafia3.png")}
           />
         </div>
 
@@ -208,7 +211,7 @@ const App = () => {
           </p>
           <img
             className="w-30 absolute right-2 -bottom-3 -rotate-3"
-            src="public/letter.png"
+            src={publicAsset("letter.png")}
           />
         </div>
       </div>
@@ -220,14 +223,14 @@ const App = () => {
               if (!show2) {
                 setShow2(true);
 
-                const song = new Audio("public/song2.mp3");
+                const song = new Audio(publicAsset("song2.mp3"));
                 song.play();
 
                 song.addEventListener("ended", () => {
                   setShow2(false);
                   setShowImages(false);
                   const cakeImg = document.getElementById("cake");
-                  if (cakeImg) cakeImg.src = "public/bcake.png";
+                  if (cakeImg) cakeImg.src = publicAsset("bcake.png");
                 });
 
                 gsap.to("#cake", {
@@ -239,7 +242,7 @@ const App = () => {
 
                 setTimeout(() => {
                   const cakeImg = document.getElementById("cake");
-                  if (cakeImg) cakeImg.src = "public/cakecut.png";
+                  if (cakeImg) cakeImg.src = publicAsset("cakecut.png");
                 }, 100);
 
                 setTimeout(() => {
@@ -249,54 +252,106 @@ const App = () => {
             }}
             id="cake"
             className="w-full active:scale-95"
-            src="public/bcake.png"
+            src={publicAsset("bcake.png")}
           />
           {show2 && <Fireworks autorun={{ speed: 2 }} />}
         </div>
 
         {showImages && (
           <>
-            <div className="absolute flex flex-wrap justify-center gap-4 bottom-0 w-full p-4 animate-fadeIn">
+            <div className="absolute bottom-0 flex w-full flex-wrap justify-center gap-4 p-4 animate-fadeIn">
               <img
-                src="public/dances.gif"
-                alt="balloon"
+                src={publicAsset("dances.gif")}
+                alt="Celebration dance"
                 className="w-45 drop-shadow-xl transition-transform hover:scale-110"
               />
             </div>
 
-            <div className="absolute flex flex-wrap justify-center gap-4 top-0 w-full p-4 animate-fadeIn">
+            <div className="absolute top-0 flex w-full flex-wrap justify-center gap-4 p-4 animate-fadeIn">
               <img
-                src="public/cat.gif"
-                alt="balloon"
+                src={publicAsset("cat.gif")}
+                alt="Dancing cat"
                 className="w-35 drop-shadow-xl transition-transform hover:scale-110"
               />
             </div>
-            <section className="flex min-h-[70vh] flex-col items-center justify-center bg-gradient-to-b from-pink-100 to-rose-200 px-6 py-16 text-center">
-              <p className="text-sm uppercase tracking-[0.3em] text-rose-500">
-                Pssst... one more thing ♡
-              </p>
-
-              <h2 className="mt-5 font-serif text-3xl text-rose-900 sm:text-5xl">
-                You didn't think I forgot, did you?
-              </h2>
-
-              <p className="mt-4 max-w-lg text-rose-800/80">
-                I made you something new this year. A little more magic and a
-                whole new world waiting for you. 🎀
-              </p>
-
-              <a
-                href="YOUR_2026_WEBSITE_URL"
-                className="mt-8 rounded-full bg-rose-500 px-8 py-4
-               font-medium text-white shadow-lg
-               transition hover:-translate-y-1 hover:bg-rose-600"
-              >
-                Open your 2026 surprise ♡ →
-              </a>
-            </section>
           </>
         )}
       </div>
+
+      {/* NEW PAGE: One more little surprise */}
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-linear-to-b from-pink-100 via-rose-100 to-purple-200 px-6 py-20 text-center">
+        {/* Background decorations */}
+        <div className="pointer-events-none absolute left-[12%] top-[18%] text-4xl text-rose-300">
+          ✧
+        </div>
+        <div className="pointer-events-none absolute right-[14%] top-[25%] text-3xl text-pink-400">
+          ♡
+        </div>
+        <div className="pointer-events-none absolute bottom-[18%] left-[20%] text-3xl text-purple-300">
+          ✿
+        </div>
+        <div className="pointer-events-none absolute bottom-[15%] right-[18%] text-4xl text-rose-300">
+          ✨
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-xl">
+          <p className="text-xs uppercase tracking-[0.35em] text-rose-500">
+            Before you go...
+          </p>
+
+          <h2 className="mt-5 font-[tiny5] text-4xl leading-tight text-rose-800 sm:text-6xl">
+            One more little surprise ♡
+          </h2>
+
+          <p className="mt-5 leading-7 text-rose-800/80">
+            You thought this was the end, didn't you? Hehe. I might have one
+            more little thing waiting for you. 🎀
+          </p>
+
+          {/* Mystery gift */}
+          <button
+            type="button"
+            onClick={() => setShowNext(true)}
+            className="group mx-auto mt-10 flex h-36 w-36 items-center justify-center rounded-3xl border-2 border-white bg-white/60 text-7xl shadow-xl shadow-rose-300/30 backdrop-blur transition duration-300 hover:-translate-y-2 hover:rotate-3 hover:scale-105"
+            aria-label="Open your mystery gift"
+          >
+            <span className="transition-transform group-hover:scale-110">
+              {showNext ? "💌" : "🎁"}
+            </span>
+          </button>
+
+          <p className="mt-4 text-sm italic text-rose-600">
+            {showNext
+              ? "Hehe, I knew you'd open it. 🥹"
+              : "There's something inside... tap to open ♡"}
+          </p>
+
+          {showNext && (
+            <div className="mt-8 animate-fadeIn rounded-3xl border border-white/70 bg-white/60 p-6 shadow-lg backdrop-blur-md">
+              <h3 className="font-serif text-2xl text-rose-900">
+                A whole new world awaits! 💗
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-rose-800/80">
+                Remember this little place? I made you something new this year.
+                More surprises, more memories, and a little more magic.
+              </p>
+
+              <a
+                href=" http://localhost:5174/"
+                target="_blank"
+                className="mt-6 inline-block rounded-full bg-rose-500 px-7 py-3 font-medium text-white shadow-lg transition hover:-translate-y-1 hover:bg-rose-600"
+              >
+                Discover your new surprise ♡ →
+              </a>
+            </div>
+          )}
+        </div>
+
+        <p className="absolute bottom-5 text-xs text-rose-400">
+          Made with love, again. ♡
+        </p>
+      </section>
     </>
   );
 };
