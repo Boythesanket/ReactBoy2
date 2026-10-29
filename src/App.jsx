@@ -108,7 +108,7 @@ const App = () => {
               setTimeout(() => setShow(false), 8000);
             }}
             className="active:scale-95 h-max w-max animate-float drop-shadow-[6px_5px_6px_#db2777]"
-            src="/cake.webp"
+            src={publicAsset("cake.webp")}
           />
           {show ? <Fireworks autorun={{ speed: 2 }} /> : ""}
         </div>
