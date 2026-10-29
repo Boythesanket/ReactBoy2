@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+import cake from "/cake.webp";
 
 const publicAsset = (filename) => `${import.meta.env.BASE_URL}${filename}`;
 gsap.registerPlugin(ScrollTrigger);
@@ -107,7 +108,7 @@ const App = () => {
               setTimeout(() => setShow(false), 8000);
             }}
             className="active:scale-95 h-max w-max animate-float drop-shadow-[6px_5px_6px_#db2777]"
-            src={publicAsset("cake.webp")}
+            src={cake}
           />
           {show ? <Fireworks autorun={{ speed: 2 }} /> : ""}
         </div>
