@@ -4,9 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const publicAsset = (filename) => `${import.meta.env.BASE_URL}${filename}`;
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   const [showImages, setShowImages] = useState(false);
