@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const App = () => {
   const [showImages, setShowImages] = useState(false);
   const [showNext, setShowNext] = useState(false);
+  console.log("working")
 
   useEffect(() => {
     gsap.fromTo(
